@@ -1,0 +1,22 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Destinations | Siam International Tour and Travel</title><meta name="description" content="Explore 45+ destinations across Thailand, Vietnam, Bali and Malaysia with Siam International Tour and Travel, Bangkok.">
+<link rel="icon" href="logo.png"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><style>.hero{--h:url('https://images.unsplash.com/photo-1518548419970-58e3b4079ab2?w=1600&q=80')}</style></head><body>
+<div class="top"><div class="wrap"><span><a href="tel:+66993913143">📞 +66-993913143</a><a href="mailto:contact@siamintltourthai.com">✉ contact@siamintltourthai.com</a></span><span>📍 Bangkok, Thailand<a class="tg" href="https://wa.me/66993913143">Become a Travel Partner</a></span></div></div>
+<nav><div class="wrap"><a href="index.html"><img src="logo.png" alt="Siam International Tour and Travel"></a><ul><li><a href="index.html">Home</a></li><li><a href="destinations.html" class=on>Destinations</a></li><li><a href="packages.html">Packages</a></li><li><a href="index.html#about">About Us</a></li><li><a href="contact.html">Contact</a></li></ul><a class="btn" href="contact.html">Enquire Now</a></div></nav>
+<section class="hero s"><div class="wrap"><h1>Our Destinations</h1><p>45+ places across Thailand, Vietnam, Bali and Malaysia</p></div></section>
+<div class="fbar"><div class="wrap"><div class="tabs" id="tabs"></div></div></div>
+<div id="out"></div>
+<section class="cta"><h2>Can't See Your Dream Place?</h2><p>We arrange private trips to any corner of Southeast Asia – tell us where.</p><a class="btn" href="contact.html">Plan My Trip</a></section>
+<footer><div class="wrap"><div><img src="logo.png" alt="Siam International"><p>Siam International Tour and Travel Company Limited – your trusted Thailand-based partner for journeys across Thailand, Vietnam, Bali and Malaysia.</p><p>📍 No. 114 Soi On Nut 50, On Nut Sub-district, Suan Luang District, Bangkok, Thailand</p></div>
+<div><h4>Company</h4><a href="index.html#about">About Us</a><a href="destinations.html">Destinations</a><a href="packages.html">Packages</a><a href="contact.html">Contact</a></div>
+<div><h4>Explore</h4><a href="packages.html?c=Thailand">Thailand</a><a href="packages.html?c=Vietnam">Vietnam</a><a href="packages.html?c=Bali">Bali</a><a href="packages.html?c=Malaysia">Malaysia</a></div>
+<div><h4>Newsletter</h4><form class="nl" onsubmit="event.preventDefault();location='mailto:contact@siamintltourthai.com?subject=Newsletter&body='+encodeURIComponent(this.e.value)"><input name="e" type="email" placeholder="Your email" required><button class="btn">Subscribe</button></form><a href="tel:+66993913143">📞 +66-993913143</a><a href="mailto:contact@siamintltourthai.com">✉ contact@siamintltourthai.com</a></div></div>
+<div class="cp">© 2026 Siam International Tour and Travel Company Limited. All rights reserved.</div></footer>
+<a class="wa" href="https://wa.me/66993913143" aria-label="WhatsApp">💬</a>
+<script src="data.js"></script>
+<script>
+const out=document.getElementById('out'),tabs=document.getElementById('tabs');
+out.innerHTML=Object.keys(C).map((c,k)=>{const l=D.filter(d=>d[1]==c);return `<section class="sec${k%2?' alt':''}" data-c="${c}" id="${c}"><div class="wrap"><div class="head"><small>${l.length} destinations</small><h2>${C[c][1]}</h2><p>${C[c][2]}</p></div><div class="grid">${l.map(dCard).join('')}</div></div></section>`}).join('');
+tabs.innerHTML='<button class="on" data-f="all">All</button>'+Object.keys(C).map(c=>`<button data-f="${c}">${C[c][1]}</button>`).join('');
+tabs.onclick=e=>{const b=e.target.closest('button');if(!b)return;tabs.querySelectorAll('button').forEach(x=>x.classList.toggle('on',x==b));out.querySelectorAll('section').forEach(s=>s.style.display=b.dataset.f=='all'||s.dataset.c==b.dataset.f?'':'none');scrollTo({top:document.querySelector('.fbar').offsetTop-70})};
+</script></body></html>

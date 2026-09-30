@@ -1,0 +1,31 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Packages | Siam International Tour and Travel</title><meta name="description" content="26 tour packages for Thailand, Vietnam, Bali and Malaysia – family, honeymoon, adventure and luxury holidays from Bangkok.">
+<link rel="icon" href="logo.png"><link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@400;500;600&display=swap" rel="stylesheet"><link rel="stylesheet" href="style.css"><style>.hero{--h:url('https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=1600&q=80')}</style></head><body>
+<div class="top"><div class="wrap"><span><a href="tel:+66993913143">📞 +66-993913143</a><a href="mailto:contact@siamintltourthai.com">✉ contact@siamintltourthai.com</a></span><span>📍 Bangkok, Thailand<a class="tg" href="https://wa.me/66993913143">Become a Travel Partner</a></span></div></div>
+<nav><div class="wrap"><a href="index.html"><img src="logo.png" alt="Siam International Tour and Travel"></a><ul><li><a href="index.html">Home</a></li><li><a href="destinations.html">Destinations</a></li><li><a href="packages.html" class=on>Packages</a></li><li><a href="index.html#about">About Us</a></li><li><a href="contact.html">Contact</a></li></ul><a class="btn" href="contact.html">Enquire Now</a></div></nav>
+<section class="hero s"><div class="wrap"><h1>Tour Packages</h1><p>Send us your dates – we'll customise any package.</p></div></section>
+<div class="fbar"><div class="wrap"><div class="tabs" id="ct"></div><div class="tabs sm" id="st"></div></div></div>
+<section class="sec"><div class="wrap"><p class="cnt" id="cnt"></p><div class="grid" id="out"></div><p class="none" id="none" hidden>No packages match this filter yet – <a href="contact.html"><u>ask us for a custom itinerary</u></a>.</p></div></section>
+<section class="sec alt"><div class="wrap"><div class="head"><small>How It Works</small><h2>From Idea to Journey</h2></div><div class="why"><div><i>💬</i><h3>1. Tell Us</h3><p>Share dates, travellers and budget on WhatsApp.</p></div><div><i>🗺️</i><h3>2. Get a Plan</h3><p>Receive a personalised itinerary and quote.</p></div><div><i>✏️</i><h3>3. Refine</h3><p>Swap hotels, tours or cities until it's perfect.</p></div><div><i>✈️</i><h3>4. Travel</h3><p>We handle bookings and support you 24/7.</p></div></div></div></section>
+<footer><div class="wrap"><div><img src="logo.png" alt="Siam International"><p>Siam International Tour and Travel Company Limited – your trusted Thailand-based partner for journeys across Thailand, Vietnam, Bali and Malaysia.</p><p>📍 No. 114 Soi On Nut 50, On Nut Sub-district, Suan Luang District, Bangkok, Thailand</p></div>
+<div><h4>Company</h4><a href="index.html#about">About Us</a><a href="destinations.html">Destinations</a><a href="packages.html">Packages</a><a href="contact.html">Contact</a></div>
+<div><h4>Explore</h4><a href="packages.html?c=Thailand">Thailand</a><a href="packages.html?c=Vietnam">Vietnam</a><a href="packages.html?c=Bali">Bali</a><a href="packages.html?c=Malaysia">Malaysia</a></div>
+<div><h4>Newsletter</h4><form class="nl" onsubmit="event.preventDefault();location='mailto:contact@siamintltourthai.com?subject=Newsletter&body='+encodeURIComponent(this.e.value)"><input name="e" type="email" placeholder="Your email" required><button class="btn">Subscribe</button></form><a href="tel:+66993913143">📞 +66-993913143</a><a href="mailto:contact@siamintltourthai.com">✉ contact@siamintltourthai.com</a></div></div>
+<div class="cp">© 2026 Siam International Tour and Travel Company Limited. All rights reserved.</div></footer>
+<a class="wa" href="https://wa.me/66993913143" aria-label="WhatsApp">💬</a>
+<script src="data.js"></script>
+<script>
+const q=new URLSearchParams(location.search).get('c'),S=['All styles','Family','Honeymoon','Adventure','Luxury'];
+let fc=C[q]?q:'all',fs='All styles';
+const ct=document.getElementById('ct'),st=document.getElementById('st');
+function draw(){
+ ct.innerHTML=`<button data-k="all" class="${fc=='all'?'on':''}">All Countries</button>`+Object.keys(C).map(c=>`<button data-k="${c}" class="${fc==c?'on':''}">${C[c][1]}</button>`).join('');
+ st.innerHTML=S.map(s=>`<button data-s="${s}" class="${fs==s?'on':''}">${s}</button>`).join('');
+ const l=P.filter(p=>(fc=='all'||p[1]==fc)&&(fs=='All styles'||p[4].split(',').includes(fs)));
+ document.getElementById('out').innerHTML=l.map(pCard).join('');
+ document.getElementById('cnt').textContent=l.length+' package'+(l.length==1?'':'s');
+ document.getElementById('none').hidden=l.length>0}
+ct.onclick=e=>{const b=e.target.closest('button');if(b){fc=b.dataset.k;draw()}};
+st.onclick=e=>{const b=e.target.closest('button');if(b){fs=b.dataset.s;draw()}};
+draw();
+</script></body></html>
